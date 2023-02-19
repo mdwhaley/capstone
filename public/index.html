@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FUNduro Hours Tracker</title>
+    <link rel="stylesheet" href="assets/css/reset.css" type="text/css" />
     <link href="styles.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
@@ -12,25 +13,39 @@
       <h1>FUNduro Hours Tracker</h1>
     </header>
     <main>
-      <form id="hoursForm">
-        <label for="email-input">Email:</label>
-        <input type="text" id="email-input" />
-        <label for="startTime-input">Start Time:</label>
-        <input type="datetime-local" id="startTime-input" />
-        <label for="finishTime-input">Finish Time:</label>
-        <input type="datetime-local" id="finishTime-input" />
-        <label for="category-input">Category:</label>
-        <select name="category-input" id="category-input">
-          <option value="theWilds">The Wilds</option>
-          <option value="tuscazoar">Tuscazoar</option>
-          <option value="forryPreserve">Forry Preserve</option>
-          <option value="devou">Devou</option>
-          <option value="hornsHill">Horns Hill</option>
-          <option value="series">Series</option>
-        </select>
-        <button id="submit" type="button">Submit</button>
-        <button id="checkHours" type="button">Check Hours</button>
-      </form>
+      <div id="stripe"></div>
+      <div id="input-form">
+        <form id="hours-form">
+          <div class="input-row">
+            <label for="email-input">Email:</label>
+            <input type="text" id="email-input" />
+          </div>
+          <div class="input-row">
+            <label for="startTime-input">Start Time:</label>
+            <input type="datetime-local" id="startTime-input" />
+          </div>
+          <div class="input-row">
+            <label for="finishTime-input">Finish Time:</label>
+            <input type="datetime-local" id="finishTime-input" />
+          </div>
+          <div class="input-row">
+            <label for="category-input">Category:</label>
+            <select name="category-input" id="category-input">
+              <option value="theWilds">The Wilds</option>
+              <option value="tuscazoar">Tuscazoar</option>
+              <option value="forryPreserve">Forry Preserve</option>
+              <option value="devou">Devou</option>
+              <option value="hornsHill">Horns Hill</option>
+              <option value="series">Series</option>
+            </select>
+          </div>
+          <div id="button-row">
+            <button id="checkHours" type="button">Check Hours</button>
+            <button id="submit" type="button">Submit</button>
+          </div>
+        </form>
+      </div>
+      <div id="return-data"></div>
     </main>
     <script src="index.js"></script>
   </body>

@@ -12,15 +12,20 @@ input,
 select {
   color: #2b2d42;
   background-color: #8d99ae;
+  width: 250px;
 }
 
 label {
+  width: 100px;
   color: #d80032;
 }
 
 button {
   background-color: #2b2d42;
   color: #ef233c;
+  width: 100px;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 button:hover {
@@ -31,4 +36,43 @@ button:hover {
 button:active {
   background-color: #8d99ae;
   color: #edf2f4;
+}
+
+header {
+  padding: 5px;
+  border-color: #8d99ae;
+  border-style: outset;
+  border-width: 5px;
+}
+
+#stripe {
+  height: 3px;
+  background-color: #ef233c;
+  margin-bottom: 5px;
+  border-style: solid;
+  border-color: #2b2d42;
+  border-left-color: #d80032;
+  border-width: 2px;
+}
+
+#hours-form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.input-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 5px;
+  padding-left: 25px;
+  padding-right: 20px;
+}
+
+#button-row {
+  display: flex;
+  padding-top: 15px;
+  justify-content: space-evenly;
 }
