@@ -1,11 +1,14 @@
 body {
   background-color: #edf2f4;
+  margin: 0;
+  padding: 0;
 }
 
 header {
   background-color: #2b2d42;
   color: #ef233c;
   text-align: center;
+  padding: 5px;
 }
 
 input,
@@ -38,21 +41,10 @@ button:active {
   color: #edf2f4;
 }
 
-header {
-  padding: 5px;
-  border-color: #8d99ae;
-  border-style: outset;
-  border-width: 5px;
-}
-
 #stripe {
-  height: 3px;
-  background-color: #ef233c;
+  height: 15px;
+  background-color: #8d99ae;
   margin-bottom: 5px;
-  border-style: solid;
-  border-color: #2b2d42;
-  border-left-color: #d80032;
-  border-width: 2px;
 }
 
 #hours-form {
