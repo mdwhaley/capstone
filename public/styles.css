@@ -68,3 +68,13 @@ button:active {
   padding-top: 15px;
   justify-content: space-evenly;
 }
+
+#return-data {
+  color: #2b2d42;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+#userEmail {
+  color: #ef233c;
+}
