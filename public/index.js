@@ -5,8 +5,10 @@ const finishTime = document.querySelector("#finishTime-input");
 const category = document.querySelector("#category-input");
 const submitButton = document.querySelector("#submit");
 const returnData = document.querySelector("#return-data");
-const inputForm = document.querySelector("input-form");
+let message = document.createElement("p");
+let hours = 0;
 
+//reset the form to blank values
 function formReset() {
   nameInput.value = "";
   emailInput.value = "";
@@ -15,14 +17,14 @@ function formReset() {
   category.value = "Chestnut Ridge";
 }
 
+//handle the form submit by checking all values are filled out and calculating hours
 function hoursSubmit(e) {
   e.preventDefault();
   returnData.innerHTML = "";
-  let hours = (
+  hours = (
     (Date.parse(finishTime.value) - Date.parse(startTime.value)) /
     3600000
   ).toFixed(2);
-  let message = document.createElement("p");
   if (nameInput.value === "") {
     message.textContent = "Please enter your name.";
   } else if (emailInput.value === "") {
