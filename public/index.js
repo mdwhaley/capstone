@@ -5,8 +5,6 @@ const finishTime = document.querySelector("#finishTime-input");
 const category = document.querySelector("#category-input");
 const submitButton = document.querySelector("#submit");
 const returnData = document.querySelector("#return-data");
-let message = document.createElement("p");
-let hours = 0;
 
 //reset the form to blank values
 function formReset() {
@@ -21,7 +19,8 @@ function formReset() {
 function hoursSubmit(e) {
   e.preventDefault();
   returnData.innerHTML = "";
-  hours = (
+  let message = document.createElement("p");
+  let hours = (
     (Date.parse(finishTime.value) - Date.parse(startTime.value)) /
     3600000
   ).toFixed(2);
@@ -38,6 +37,7 @@ function hoursSubmit(e) {
   } else {
     message.textContent = `Thank You ${nameInput.value} for volunteering ${hours} hours at ${category.value}!`;
   }
+  console.log(startTime.value);
   returnData.appendChild(message);
   formReset();
 }
