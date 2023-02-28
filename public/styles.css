@@ -79,10 +79,10 @@ button:active {
   color: #ef233c;
 }
 
-#sponsor-bar {
+.sponsor-bar {
   height: 50px;
   background-color: #8d99ae;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -90,4 +90,11 @@ button:active {
   padding-left: 5px;
   padding-right: 5px;
   padding-bottom: 20px;
+  margin-top: 0px;
+}
+
+#title {
+  color: #ef233c;
+  text-align: center;
+  padding: 5px;
 }
