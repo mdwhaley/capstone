@@ -37,12 +37,12 @@ function hoursSubmit(e) {
   } else {
     message.textContent = `Thank You ${nameInput.value} for volunteering ${hours} hours at ${category.value}!`;
   }
-  console.log(startTime.value);
-  console.log(finishTime.value);
-  console.log(hours);
-  console.log(nameInput.value);
-  console.log(emailInput.value);
-  console.log(category.value);
+  // console.log(startTime.value);
+  // console.log(finishTime.value);
+  // console.log(hours);
+  // console.log(nameInput.value);
+  // console.log(emailInput.value);
+  // console.log(category.value);
   returnData.appendChild(message);
   formReset();
 }
