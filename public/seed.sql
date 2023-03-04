@@ -37,7 +37,7 @@ values ('Chestnut Ridge'),
     ('Forry Preserve'),
     ('Devou'),
     ('Horns Hill'),
-    ('Series');
+    ('The Series');
 
 insert into entry(user_id, category_id, start_time, finish_time, hours)
 values(1, 7,'2023-02-28T13:06', '2023-02-28T13:06', 9.22),

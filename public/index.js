@@ -1,8 +1,10 @@
+const form = document.querySelector("form");
 const nameInput = document.querySelector("#name-input");
 const emailInput = document.querySelector("#email-input");
 const startTime = document.querySelector("#startTime-input");
 const finishTime = document.querySelector("#finishTime-input");
-const category = document.querySelector("#category-input");
+const categoryInput = document.querySelector("#category-input");
+const categoryList = document.querySelector("#category-list");
 const submitButton = document.querySelector("#submit");
 const returnData = document.querySelector("#return-data");
 
@@ -12,7 +14,7 @@ function formReset() {
   emailInput.value = "";
   startTime.value = "";
   finishTime.value = "";
-  category.value = "Chestnut Ridge";
+  categoryInput.value = 1;
 }
 
 //handle the form submit by checking all values are filled out and calculating hours
@@ -25,26 +27,56 @@ function hoursSubmit(e) {
     3600000
   ).toFixed(2);
   if (nameInput.value === "") {
-    message.textContent = "Please enter your name.";
+    alert("Please enter your name.");
+    return;
   } else if (emailInput.value === "") {
-    message.textContent = "Please enter an email address.";
+    alert("Please enter an email address.");
+    return;
   } else if (startTime.value === "") {
-    message.textContent = "Please enter a Start Time.";
+    alert("Please enter a Start Time.");
+    return;
   } else if (finishTime.value === "") {
-    message.textContent = "Please enter a Finish Time.";
+    alert("Please enter a Finish Time.");
+    return;
   } else if (hours < 0) {
-    message.textContent = "Whoa! Did you invent time travel?";
+    alert("Whoa! Did you invent time travel?");
+    return;
   } else {
-    message.textContent = `Thank You ${nameInput.value} for volunteering ${hours} hours at ${category.value}!`;
+    message.textContent = `Thank You ${nameInput.value} for volunteering ${hours} hours for ${categoryInput.value.textContent}!`; //Stuck on returning category text
   }
-  // console.log(startTime.value);
-  // console.log(finishTime.value);
-  // console.log(hours);
-  // console.log(nameInput.value);
-  // console.log(emailInput.value);
-  // console.log(category.value);
+  let body = {
+    user_name: nameInput.value,
+    user_email: emailInput.value,
+    start_time: startTime.value,
+    finish_time: finishTime.value,
+    category_input: categoryInput.value,
+    hours,
+  };
+
+  axios.post("http://localhost:4027/entry", body).then((res) => {
+    res.data;
+    //console.log(+categoryInput.value);
+  });
   returnData.appendChild(message);
   formReset();
 }
 
+// function getTotalHours() {
+//   axios.get("http://localhost:4027/totalHours").then((res) => {
+//     res.data;
+//     console.log("success");
+//   });
+// }
+
+function getCategories() {
+  axios.get("http://localhost:4027/category/").then((res) => {
+    res.data.forEach((category) => {
+      const option = document.createElement("option");
+      option.setAttribute("value", category["id"]);
+      option.textContent = category.category_name;
+      categoryInput.appendChild(option);
+    });
+  });
+}
+getCategories();
 submitButton.addEventListener("click", hoursSubmit);

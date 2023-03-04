@@ -39,13 +39,13 @@
           <div class="input-row">
             <label for="category-input">Category:</label>
             <select name="category-input" id="category-input">
-              <option value="Chestnut Ridge">Chestnut Ridge</option>
-              <option value="The Wilds">The Wilds</option>
-              <option value="Tuscazoar">Tuscazoar</option>
-              <option value="Forry Preserve">Forry Preserve</option>
-              <option value="Devou">Devou</option>
-              <option value="Horns Hill">Horns Hill</option>
-              <option value="Series">Series</option>
+              <!-- <option value="1">Chestnut Ridge</option>
+              <option value="2">The Wilds</option>
+              <option value="3">Tuscazoar</option>
+              <option value="4">Forry Preserve</option>
+              <option value="5">Devou</option>
+              <option value="6">Horns Hill</option>
+              <option value="7">Series</option> -->
             </select>
           </div>
           <div id="button-row">
@@ -53,6 +53,7 @@
             <button id="submit" type="button">Submit</button>
           </div>
         </form>
+        <section id="category-list"></section>
       </div>
       <div id="return-data"></div>
       <div class="sponsor-bar">
@@ -100,7 +101,7 @@
         />
       </div>
     </main>
-
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
     <script src="index.js"></script>
   </body>
 </html>
