@@ -6,6 +6,7 @@ const finishTime = document.querySelector("#finishTime-input");
 const categoryInput = document.querySelector("#category-input");
 const categoryList = document.querySelector("#category-list");
 const submitButton = document.querySelector("#submit");
+const checkHoursButton = document.querySelector("#checkHours");
 const returnData = document.querySelector("#return-data");
 
 //reset the form to blank values
@@ -42,7 +43,7 @@ function hoursSubmit(e) {
     alert("Whoa! Did you invent time travel?");
     return;
   } else {
-    message.textContent = `Thank You ${nameInput.value} for volunteering ${hours} hours for ${categoryInput.value.textContent}!`; //Stuck on returning category text
+    message.textContent = `Thank You ${nameInput.value} for volunteering ${hours} hours!`; //Stuck on returning category text
   }
   let body = {
     user_name: nameInput.value,
@@ -55,18 +56,24 @@ function hoursSubmit(e) {
 
   axios.post("http://localhost:4027/entry", body).then((res) => {
     res.data;
-    //console.log(+categoryInput.value);
+    const currentID = res.data[0];
+    console.log(currentID);
   });
+
   returnData.appendChild(message);
-  formReset();
+  //formReset();
+  // axios.get("http://localhost:4027/userPost", body).then((res) => {
+  //   res.data;
+  //   console.log(nameInput.value);
+  // });
 }
 
-// function getTotalHours() {
-//   axios.get("http://localhost:4027/totalHours").then((res) => {
-//     res.data;
-//     console.log("success");
-//   });
-// }
+function getUserPost() {
+  const email = emailInput.value;
+  axios.get(`http://localhost:4027/entry/${email}`).then((res) => {
+    console.log(res.data);
+  });
+}
 
 function getCategories() {
   axios.get("http://localhost:4027/category/").then((res) => {
@@ -80,3 +87,4 @@ function getCategories() {
 }
 getCategories();
 submitButton.addEventListener("click", hoursSubmit);
+checkHoursButton.addEventListener("click", getUserPost);

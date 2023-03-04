@@ -98,3 +98,7 @@ button:active {
   text-align: center;
   padding: 5px;
 }
+
+#return-data {
+  text-align: center;
+}

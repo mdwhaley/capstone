@@ -26,7 +26,7 @@ values ('Chestnut Ridge'),
 
 insert into entry(name, email, start_time, finish_time, category_id, hours)
 values('Mike Whaley', 'racedirector@combomtb.com','2023-02-28T13:06', '2023-02-28T13:06', 7, 9.22),
-    ('Roger Morgan', 'hornshill@gombomtb.com', '2023-02-28T10:13', '2023-02-28T18:29', 6, 8.27),
+    ('Roger Morgan', 'hornshill@combomtb.com', '2023-02-28T10:13', '2023-02-28T18:29', 6, 8.27),
     ('Tim Carley', 'trails@combomtb.com', '2023-02-28T10:13', '2023-02-28T18:29', 1, 8.27),
     ('Jason Reser', 'dude@coramtb.com', '2023-02-28T10:13', '2023-02-28T18:29',5, 8.27),
     ('Robert Howley', 'bro@mtbhaus.com', '2023-02-28T10:13', '2023-02-28T18:29', 5,8.27),

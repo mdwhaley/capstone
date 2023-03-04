@@ -33,8 +33,22 @@ module.exports = {
     sequelize
       .query(
         `insert into entry (name, email, start_time, finish_time, category_id, hours)
-        values ('${user_name}', '${user_email}', '${start_time}', '${finish_time}', ${category_input}, ${hours} );`
+        values ('${user_name}', '${user_email}', '${start_time}', '${finish_time}', ${category_input}, ${hours} ) 
+        returning id;
+        `
       )
+
+      .then((dbRes) => {
+        res.status(200).send(dbRes[0]);
+        console.log(dbRes[0]);
+      })
+      .catch((err) => console.log(err));
+  },
+
+  getUserPost: (req, res) => {
+    const email = req.params.email;
+    sequelize
+      .query(`select * from entry where email = '${email}';`)
       .then((dbRes) => {
         res.status(200).send(dbRes[0]);
       })
