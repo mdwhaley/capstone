@@ -8,6 +8,8 @@ const categoryList = document.querySelector("#category-list");
 const submitButton = document.querySelector("#submit");
 const checkHoursButton = document.querySelector("#checkHours");
 const returnData = document.querySelector("#return-data");
+let message = document.createElement("p");
+let currentID = 0;
 
 //reset the form to blank values
 function formReset() {
@@ -22,7 +24,7 @@ function formReset() {
 function hoursSubmit(e) {
   e.preventDefault();
   returnData.innerHTML = "";
-  let message = document.createElement("p");
+
   let hours = (
     (Date.parse(finishTime.value) - Date.parse(startTime.value)) /
     3600000
@@ -43,34 +45,29 @@ function hoursSubmit(e) {
     alert("Whoa! Did you invent time travel?");
     return;
   } else {
-    message.textContent = `Thank You ${nameInput.value} for volunteering ${hours} hours!`; //Stuck on returning category text
+    let body = {
+      user_name: nameInput.value,
+      user_email: emailInput.value,
+      start_time: startTime.value,
+      finish_time: finishTime.value,
+      category_input: categoryInput.value,
+      hours,
+    };
+
+    axios.post("http://localhost:4027/entry", body).then((res) => {
+      res.data;
+      currentID = res.data[0];
+      console.log(currentID);
+    });
+    message.textContent = `Thank You ${nameInput.value} for volunteering ${hours} hours! If you made a mistake hit the Delete button and re-submit`;
+    returnData.appendChild(message);
+    formReset();
   }
-  let body = {
-    user_name: nameInput.value,
-    user_email: emailInput.value,
-    start_time: startTime.value,
-    finish_time: finishTime.value,
-    category_input: categoryInput.value,
-    hours,
-  };
-
-  axios.post("http://localhost:4027/entry", body).then((res) => {
-    res.data;
-    const currentID = res.data[0];
-    console.log(currentID);
-  });
-
-  returnData.appendChild(message);
-  //formReset();
-  // axios.get("http://localhost:4027/userPost", body).then((res) => {
-  //   res.data;
-  //   console.log(nameInput.value);
-  // });
 }
 
 function getUserPost() {
-  const email = emailInput.value;
-  axios.get(`http://localhost:4027/entry/${email}`).then((res) => {
+  axios.get(`http://localhost:4027/entry/${currentID}`).then((res) => {
+    res.data;
     console.log(res.data);
   });
 }
