@@ -41,21 +41,15 @@ module.exports = {
       .then((dbRes) => {
         res.status(200).send(dbRes[0]);
         entry_id = dbRes[0][0].id;
-        //console.log(entry_id);
-        // console.log(
-        //   sequelize.query(`select * from entry where id = ${entry_id};`)
-        // );
       })
       .catch((err) => console.log(err));
   },
 
   deletePost: (req, res) => {
-    //const email = req.params.email;
     sequelize
       .query(`delete from entry where id = '${entry_id}';`)
       .then((dbRes) => {
         res.status(200).send(dbRes[0]);
-        console.log(entry_id);
       })
       .catch((err) => console.log(err));
   },

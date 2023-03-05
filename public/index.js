@@ -20,7 +20,7 @@ function formReset() {
   categoryInput.value = 1;
 }
 
-//handle the form submit by checking all values are filled out and calculating hours
+//handle the form submit by checking all values are filled out and calculating hours then submitting to database
 function hoursSubmit(e) {
   e.preventDefault();
   returnData.innerHTML = "";
@@ -57,20 +57,18 @@ function hoursSubmit(e) {
     axios.post("http://localhost:4027/entry", body).then((res) => {
       res.data;
       currentID = res.data[0];
-      //console.log(currentID);
     });
     message.textContent = `Thank You ${nameInput.value} for volunteering ${hours} hours! If you made a mistake hit the Delete button and re-submit`;
     returnData.appendChild(message);
     formReset();
   }
 }
-
+//Delete the post made by the user
 function deletePost() {
   axios.get(`http://localhost:4027/entry/${currentID}`).then((res) => {
     res.data;
     alert("Entry Deleted!");
     returnData.innerHTML = "";
-    //console.log(res.data);
   });
 }
 
