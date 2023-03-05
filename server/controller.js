@@ -49,8 +49,8 @@ module.exports = {
       .catch((err) => console.log(err));
   },
 
-  getUserPost: (req, res) => {
-    const email = req.params.email;
+  deletePost: (req, res) => {
+    //const email = req.params.email;
     sequelize
       .query(`delete from entry where id = '${entry_id}';`)
       .then((dbRes) => {

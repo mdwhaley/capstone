@@ -6,7 +6,7 @@ const finishTime = document.querySelector("#finishTime-input");
 const categoryInput = document.querySelector("#category-input");
 const categoryList = document.querySelector("#category-list");
 const submitButton = document.querySelector("#submit");
-const checkHoursButton = document.querySelector("#checkHours");
+const deleteButton = document.querySelector("#delete");
 const returnData = document.querySelector("#return-data");
 let message = document.createElement("p");
 let currentID = 0;
@@ -57,7 +57,7 @@ function hoursSubmit(e) {
     axios.post("http://localhost:4027/entry", body).then((res) => {
       res.data;
       currentID = res.data[0];
-      console.log(currentID);
+      //console.log(currentID);
     });
     message.textContent = `Thank You ${nameInput.value} for volunteering ${hours} hours! If you made a mistake hit the Delete button and re-submit`;
     returnData.appendChild(message);
@@ -65,10 +65,12 @@ function hoursSubmit(e) {
   }
 }
 
-function getUserPost() {
+function deletePost() {
   axios.get(`http://localhost:4027/entry/${currentID}`).then((res) => {
     res.data;
-    console.log(res.data);
+    alert("Entry Deleted!");
+    returnData.innerHTML = "";
+    //console.log(res.data);
   });
 }
 
@@ -84,4 +86,4 @@ function getCategories() {
 }
 getCategories();
 submitButton.addEventListener("click", hoursSubmit);
-checkHoursButton.addEventListener("click", getUserPost);
+deleteButton.addEventListener("click", deletePost);
