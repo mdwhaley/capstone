@@ -65,13 +65,13 @@ function hoursSubmit(e) {
 }
 //Delete the post made by the user
 function deletePost() {
-  axios.get(`http://localhost:4027/entry/${currentID}`).then((res) => {
+  axios.delete(`http://localhost:4027/entry/${currentID}`).then((res) => {
     res.data;
     alert("Entry Deleted!");
     returnData.innerHTML = "";
   });
 }
-
+//get the categories from the database for the dropdown list
 function getCategories() {
   axios.get("http://localhost:4027/category/").then((res) => {
     res.data.forEach((category) => {
