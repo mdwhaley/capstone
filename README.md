@@ -18,4 +18,4 @@ The hours tracker stores user entries to a postgres SQL database. The app featur
 
 ### POST name, email, start time, finish time, category, and hours to the database
 
-### DELETE the entry just posted by the user if they made a mistake
+### DELETE the entry just posted by the user
