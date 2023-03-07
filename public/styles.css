@@ -103,3 +103,12 @@ button:active {
   text-align: center;
   color: #2b2d42;
 }
+
+h5 {
+  color: #8d99ae;
+}
+
+.hours-card {
+  color: #d80032;
+  text-align: center;
+}
