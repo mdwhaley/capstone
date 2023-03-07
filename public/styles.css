@@ -112,3 +112,9 @@ h5 {
   color: #d80032;
   text-align: center;
 }
+
+h5,
+h6 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
