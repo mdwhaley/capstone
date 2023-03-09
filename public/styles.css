@@ -102,7 +102,7 @@ button:active {
 #return-data {
   text-align: center;
   color: #2b2d42;
-  margin-top: 10px;
+  margin-top: 25px;
 }
 
 h5 {
@@ -121,6 +121,6 @@ h6 {
 }
 
 #hours-list {
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
