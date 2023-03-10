@@ -85,7 +85,7 @@ function getHoursByCategory() {
     hoursList.innerHTML = "";
     res.data.forEach((elem) => {
       let hoursCard = `<div class="hours-card">
-          <h6>${elem.category_name}:   ${elem.sum_hours}      hours</h6>
+          <h6>${elem.category_name}: ${elem.sum_hours} hours</h6>
           </div>
       `;
       hoursList.innerHTML += hoursCard;
@@ -98,7 +98,6 @@ function getTotalHours() {
   axios.get(`http://localhost:4027/totalHours`).then((res) => {
     res.data;
     total_hours = res.data[0].total_hours;
-
     let USDollar = new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
