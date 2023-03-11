@@ -12,6 +12,7 @@ let hoursList = document.querySelector("#hours-list");
 let message = document.createElement("p");
 let totalHours = document.createElement("h5");
 let currentID = 0;
+const hourlyRate = 29.95;
 
 //reset the form to blank values
 function formReset() {
