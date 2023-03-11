@@ -12,7 +12,6 @@ let hoursList = document.querySelector("#hours-list");
 let message = document.createElement("p");
 let totalHours = document.createElement("h5");
 let currentID = 0;
-const hourlyRate = 29.95;
 
 //reset the form to blank values
 function formReset() {
@@ -98,6 +97,7 @@ function getTotalHours() {
   axios.get(`http://localhost:4027/totalHours`).then((res) => {
     res.data;
     total_hours = res.data[0].total_hours;
+
     let USDollar = new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
