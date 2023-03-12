@@ -19,7 +19,7 @@ insert into category(category_name)
 values ('Chestnut Ridge'),
     ('The Wilds'),
     ('Tuscazoar'),
-    ('Forry Preserve'),
+    ('Star Hill'),
     ('Devou'),
     ('Horns Hill'),
     ('The Series');
